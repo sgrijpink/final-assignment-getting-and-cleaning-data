@@ -66,7 +66,7 @@ names(accelerometerData) <- lapply(names(accelerometerData), function(variable) 
   
   # lower case first letter of the variable name
   s <- strsplit(variable, " ")[[1]]
-  paste0(tolower(substring(s, 1,1)), substring(s, 2))
+  paste0(tolower(substring(s, 1, 1)), substring(s, 2))
 })
 
 # STEP 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
