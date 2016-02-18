@@ -21,14 +21,14 @@ features <- read_delim(file.path(baseDir, "features.txt"), delim = " ", col_name
 # Work around for duplicated column names
 features <- mutate(features, feature = paste(id, gsub(",", "_", feature), sep = "_"))
 
-print("Construct complete test data set")
+print("Construct test data set")
 subjectTest <- read_table(file.path(testDir,  "subject_test.txt"), col_names = c("subject"))
 xTest       <- read_table(file.path(testDir,  "X_test.txt"),       col_names = features$feature)
 yTest       <- read_table(file.path(testDir,  "y_test.txt"),       col_names = c("activity"))
 
 testData <- cbind(xTest, subjectTest, yTest)
 
-print("Construct complete train data set")
+print("Construct train data set")
 subjectTrain <- read_table(file.path(trainDir, "subject_train.txt"), col_names = c("subject"))
 xTrain       <- read_table(file.path(trainDir, "X_train.txt"),       col_names = features$feature)
 yTrain       <- read_table(file.path(trainDir, "y_train.txt"),       col_names = c("activity"))
